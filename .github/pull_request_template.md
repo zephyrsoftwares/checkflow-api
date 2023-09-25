@@ -7,6 +7,7 @@
 - [ ] Have you reviewed your own changes ?
 - [ ] Is there any **break changes** ?
 - [ ] Have you impacted the **Github Actions** workflow?
+- [ ] Have renamed the title of this PR ?
 
 <!-- In a few words, explain the work done. -->
 #### QUICK DESCRIPTION
