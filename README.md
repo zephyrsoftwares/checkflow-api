@@ -17,7 +17,7 @@
     ·
     <a href="#">Development</a>
     ·
-    <a href="https://www.figma.com/file/udAhXtW7bjQOP99dzkwmYy/Untitled?type=design&node-id=362-2495&mode=design&t=pvWlchU6wM16a3jy-0">Figma Team</a>
+    <a href="https://www.figma.com/files/project/108927027/CheckFlow?fuid=843979680232966239">Figma Project</a>
 
   </p>
 </div>
