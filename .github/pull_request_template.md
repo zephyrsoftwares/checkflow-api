@@ -2,7 +2,6 @@
 
 <!-- Check this list before you begin. -->
 #### EARLY STEPS
-
 - [ ] Have you linked this PR to its **labels**, **project**, **milestone**, **issue** ?
 - [ ] Have you reviewed your own changes ?
 - [ ] Is there any **breaking changes** ?
@@ -14,7 +13,6 @@
 
 <!-- Explain why have you done these changes. -->
 #### MOTIVATION
-
 
 <!-- In detail, explain the work done. -->
 #### DETAILED CHANGES
