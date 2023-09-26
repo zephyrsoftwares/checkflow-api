@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/zephyrsoftwares/checkflow">
-    <img src="images/full_logo.svg" alt="Logo"  height="100">
+    <img src="images/full_logo.png" alt="Logo"  height="100">
   </a>
 
   <h3 align="center">The flexible IT auditing software.</h3>
