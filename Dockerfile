@@ -1,5 +1,5 @@
-FROM python:3.9-alpine3.13
-LABEL maintainer="londonappdeveloper.com"
+FROM python:3.11.5-alpine3.18
+LABEL maintainer="zephyrsoftwares"
 
 ENV PYTHONUNBUFFERED 1
 
