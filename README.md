@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/zephyrsoftwares/checkflow">
-    <img src="images/full_logo.svg" alt="Logo"  height="100">
+    <img src="images/full_logo.png" alt="Logo"  height="100">
   </a>
 
   <h3 align="center">The flexible IT auditing software.</h3>
@@ -15,7 +15,7 @@
     <br />
     <a href="#">Prodcution</a>
     ·
-    <a href="#">Development</a>
+    <a href="http://127.0.0.1:8000">Development</a>
     ·
     <a href="https://www.figma.com/files/project/108927027/CheckFlow?fuid=843979680232966239">Figma Project</a>
 
@@ -80,15 +80,23 @@ _TO DO: Complete_
    ```sh
    git clone https://github.com/your_username/checkflow.git
    ```
-3. Create your feature branch
+3. Build docker-compose
+   ```sh
+   docker-compose build
+   ```
+4. Bootup docker-compose
+   ```sh
+   docker-compose up
+   ```
+5. Create your feature branch
    ```sh
    git checkout -b MISC-XXXX
    ```
-4. Commit your changes
+6. Commit your changes
    ```sh
    git commit -m 'Added some features'
    ```
-5. Push to the branch
+7. Push to the branch
    ```sh
    git push origin MISC-XXXX
    ```
