@@ -1,6 +1,6 @@
 ---
 name: 🐞 Bug Reports
-about: "For feature requests. Please search for existing issues first."
+about: "If you found a problem. Please search for existing bug first."
 
 ---
 
