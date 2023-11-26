@@ -5,4 +5,3 @@ omit =
     */test_*.py
     */settings.py
     */manage.py
-    */opt/*
