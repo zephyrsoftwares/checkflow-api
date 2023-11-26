@@ -1,5 +1,4 @@
 <!-- HEADER -->
-# Recipe App API (v2) Source Code
 <br />
 <div align="center">
   <a href="https://github.com/zephyrsoftwares/checkflow">
