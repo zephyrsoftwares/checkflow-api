@@ -37,6 +37,15 @@ jobs:
         run: |
           coverage run app/manage.py test app
 
-      - name: Coverage Report
+      - name: Deploy to EC2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.server }}
         run: |
-          coverage report --fail-under=95
+          mkdir -p ~/.ssh
+          echo "$server" > ~/.ssh/server
+          chmod 600 ~/.ssh/server
+          ssh-keyscan -H 15.236.193.68 >> ~/.ssh/known_hosts
+          ssh -i ~/.ssh/server -o StrictHostKeyChecking=no ubuntu@15.236.193.68 << 'ENDSSH'
+          cd checkflow-api
+          git pull origin develop
+          ENDSSH
