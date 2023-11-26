@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          coverage run --source='.' manage.py test
+          coverage run --source='.' app/manage.py test
 
       - name: Coverage Report
         run: |
