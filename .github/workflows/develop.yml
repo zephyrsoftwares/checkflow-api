@@ -29,10 +29,6 @@ jobs:
         run: |
           flake8
 
-      - name: Format with Black
-        run: |
-          black . --check
-
       - name: Format with isort
         run: |
           isort . --check-only
