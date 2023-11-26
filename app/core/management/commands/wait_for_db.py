@@ -10,7 +10,6 @@ from django.core.management.base import BaseCommand
 from django.db.utils import OperationalError
 
 
-
 class Command(BaseCommand):
     """Django command to wait for database."""
 
