@@ -5,13 +5,9 @@
     <img src="images/full_logo.png" alt="Logo"  height="100">
   </a>
 
-
   <h3 align="center">The flexible IT auditing software.</h3>
-This is the code for the second edition of the course that was released in 2022.
-
 
   <p align="center">
-Course code for: [Build a Backend REST API with Python &amp; Django - Advanced](https://londonapp.dev/c2)
     CheckFlow allows you to fill checks for IT auditing and to build your own forms.
     <br />
     <a href="https://github.com/zephyrsoftwares/checkflow/wiki"><strong>Explore the docs »</strong></a>
