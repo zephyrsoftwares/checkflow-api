@@ -37,15 +37,13 @@ jobs:
         run: |
           coverage run app/manage.py test app
 
-      - name: Deploy to EC2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_CERTIFICATE }}  # Ensure this secret name is correct
+      - name: Set up SSH connection
         run: |
           mkdir -p ~/.ssh
-          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/checkflowpem.pem  # Use the same variable name
-          chmod 600 ~/.ssh/checkflowpem.pem
+          echo "${{ secrets.EC2_CERTIFICATE }}" > ~/.ssh/ec2_key.pem
+          chmod 600 ~/.ssh/ec2_key.pem
           ssh-keyscan -H 15.236.193.68 >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/checkflowpem.pem -o StrictHostKeyChecking=no ubuntu@15.236.193.68 << 'ENDSSH'
-          cd checkflow-api
-          git pull origin develop
-          ENDSSH
+
+      - name: SSH Command Execution
+        run: |
+          ssh -i ~/.ssh/ec2_key.pem ubuntu@15.236.193.68 'echo "Connected to EC2"'
