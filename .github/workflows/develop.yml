@@ -39,7 +39,7 @@ jobs:
 
       - name: Deploy to EC2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_CERTIFICATE }}
         run: |
           mkdir -p ~/.ssh
           echo "$EC2_CERTIFICATE" > ~/.ssh/checkflowpem.pem
