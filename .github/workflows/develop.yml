@@ -39,13 +39,13 @@ jobs:
 
       - name: Deploy to EC2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.server }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh
-          echo "$server" > ~/.ssh/server
-          chmod 600 ~/.ssh/server
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/checkflow.pem
+          chmod 600 ~/.ssh/checkflow.pem
           ssh-keyscan -H 15.236.193.68 >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/server -o StrictHostKeyChecking=no ubuntu@15.236.193.68 << 'ENDSSH'
+          ssh -i ~/.ssh/checkflow.pem -o StrictHostKeyChecking=no ubuntu@15.236.193.68 << 'ENDSSH'
           cd checkflow-api
           git pull origin develop
           ENDSSH
