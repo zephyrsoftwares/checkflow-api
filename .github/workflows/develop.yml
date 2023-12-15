@@ -39,10 +39,10 @@ jobs:
 
       - name: Deploy to EC2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_CERTIFICATE }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_CERTIFICATE }}  # Ensure this secret name is correct
         run: |
           mkdir -p ~/.ssh
-          echo "$EC2_CERTIFICATE" > ~/.ssh/checkflowpem.pem
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/checkflowpem.pem  # Use the same variable name
           chmod 600 ~/.ssh/checkflowpem.pem
           ssh-keyscan -H 15.236.193.68 >> ~/.ssh/known_hosts
           ssh -i ~/.ssh/checkflowpem.pem -o StrictHostKeyChecking=no ubuntu@15.236.193.68 << 'ENDSSH'
