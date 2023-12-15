@@ -38,6 +38,8 @@ jobs:
           coverage run app/manage.py test app
 
       - name: Set up SSH connection
+        env:
+          EC2_CERTIFICATE: ${{ secrets.EC2_CERTIFICATE }}  # Ensure this secret name is correct
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_CERTIFICATE }}" > ~/.ssh/ec2_key.pem
