@@ -41,9 +41,10 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_CERTIFICATE }}" > ~/.ssh/ec2_key.pem
+          echo ~/.ssh/ec2_key.pem
           chmod 600 ~/.ssh/ec2_key.pem
           ssh-keyscan -H 15.236.193.68 >> ~/.ssh/known_hosts
 
       - name: SSH Command Execution
         run: |
-          ssh -i ~/.ssh/ec2_key.pem ubuntu@15.236.193.68 'echo "Connected to EC2"'
+          ssh -i ~/.ssh/ec2_key.pem ubuntu@ec2-15-236-193-68.eu-west-3.compute.amazonaws.com  'echo "Connected to EC2"'
