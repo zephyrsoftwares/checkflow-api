@@ -45,7 +45,7 @@ jobs:
           echo "$EC2_CERTIFICATE" > ~/.ssh/checkflowpem.pem
           chmod 600 ~/.ssh/checkflow.pem
           ssh-keyscan -H 15.236.193.68 >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/checkflow.pem -o StrictHostKeyChecking=no ubuntu@15.236.193.68 << 'ENDSSH'
+          ssh -i ~/.ssh/checkflowpem.pem -o StrictHostKeyChecking=no ubuntu@15.236.193.68 << 'ENDSSH'
           cd checkflow-api
           git pull origin develop
           ENDSSH
