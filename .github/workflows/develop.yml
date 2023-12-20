@@ -45,7 +45,6 @@ jobs:
           echo "$CHECKFLOW_PEM" > checkflow.pem
           chmod 600 checkflow.pem
           ssh-keyscan -H ec2-35-180-227-151.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
-          ssh -i "checkflow.pem" -o StrictHostKeyChecking=no ubuntu@ec2-35-180-227-151.eu-west-3.compute.amazonaws.com << 'ENDSSH'
-          cd checkflow-api
+          ssh -v -i "checkflow.pem" -o StrictHostKeyChecking=no ubuntu@ec2-35-180-227-151.eu-west-3.compute.amazonaws.com          cd checkflow-api
           git pull origin develop
           ENDSSH
