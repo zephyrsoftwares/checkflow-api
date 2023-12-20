@@ -41,6 +41,7 @@ ALLOWED_HOSTS.extend(
     )
 )
 
+CSRF_TRUSTED_ORIGINS = ["*"]
 
 # Application definition
 
