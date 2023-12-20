@@ -14,17 +14,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Debug
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          CHECKFLOW_PEM: ${{ secrets.CHECKFLOW_PEM }}
-
-        run: |
-          echo "${{ secrets.AWS_ACCESS_KEY_ID }}" | head -c 5
-          echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}" | head -c 5
-          echo "${{ secrets.CHECKFLOW_PEM }}" | head -c 5
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
