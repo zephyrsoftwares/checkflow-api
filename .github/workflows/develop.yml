@@ -37,15 +37,28 @@ jobs:
         run: |
           coverage run app/manage.py test app
 
-      - name: Deploy to EC2
-        env:
-          CHECKFLOW_PEM: ${{ secrets.CHECKFLOW_PEM }}
+      - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "$CHECKFLOW_PEM" > ec2_key.pem
-          chmod 600 ec2_key.pem
-          ssh-keyscan -H ec2-35-180-227-151.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
-          ssh -i ec2_key.pem -o StrictHostKeyChecking=no ubuntu@ec2-35-180-227-151.eu-west-3.compute.amazonaws.com << 'ENDSSH'
-          cd checkflow-api
-          git pull origin develop
+          echo "${{ secrets.CHECKFLOW_PEM }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H [your-ec2-instance-hostname-or-ip] >> ~/.ssh/known_hosts
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install awscli
+
+      - name: Configure AWS credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set default.region eu-west-3
+
+      - name: Deploy to EC2
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no [your-ec2-instance-username]@[your-ec2-instance-hostname-or-ip] << 'ENDSSH'
+          cd [your-project-directory]
+          git pull origin main
+          # Add other deployment commands here
           ENDSSH
