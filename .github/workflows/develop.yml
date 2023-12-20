@@ -42,9 +42,10 @@ jobs:
           CHECKFLOW_PEM: ${{ secrets.CHECKFLOW_PEM }}
         run: |
           mkdir -p ~/.ssh
-          echo "$CHECKFLOW_PEM" > checkflow.pem
-          chmod 600 checkflow.pem
+          echo "$CHECKFLOW_PEM" > ec2_key.pem
+          chmod 600 ec2_key.pem
           ssh-keyscan -H ec2-35-180-227-151.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
-          ssh -v -i "checkflow.pem" -o StrictHostKeyChecking=no ubuntu@ec2-35-180-227-151.eu-west-3.compute.amazonaws.com          cd checkflow-api
+          ssh -i ec2_key.pem -o StrictHostKeyChecking=no ubuntu@ec2-35-180-227-151.eu-west-3.compute.amazonaws.com << 'ENDSSH'
+          cd checkflow-api
           git pull origin develop
           ENDSSH
