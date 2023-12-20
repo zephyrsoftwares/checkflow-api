@@ -44,7 +44,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "$CHECKFLOW_PEM" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ec2-15-236-193-68.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
+          ssh-keyscan -H ec2-35-180-227-151.eu-west-3.compute.amazonaws.com >> ~/.ssh/known_hosts
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@ec2-35-180-227-151.eu-west-3.compute.amazonaws.com << 'ENDSSH'
           cd checkflow-api
           git pull origin develop
